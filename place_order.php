@@ -64,7 +64,7 @@ if (isset($_GET["action"])) {
         $sql = "INSERT INTO orders (item_name, item_price, item_quantity,c_id)
         VALUES ('$name', '$price', '$quantity','$customer')";  
         if ($connect->query($sql) === TRUE) {
-            echo "New record created successfully";
+            header("Location: order.php"); 
         } else {
             echo "Error: " . $sql . "<br>" . $connect->error;
         }          

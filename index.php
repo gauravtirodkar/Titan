@@ -1,162 +1,161 @@
-<?php 
-session_start();
-$connect = mysqli_connect("localhost", "root", "", "urbandine");
-
-if(isset($_POST["add_to_cart"]))
-{
-	if(isset($_SESSION["shopping_cart"]))
-	{
-		$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
-		if(!in_array($_GET["id"], $item_array_id))
-		{
-			$count = count($_SESSION["shopping_cart"]);
-			$item_array = array(
-				'item_id'			=>	$_GET["id"],
-				'item_name'			=>	$_POST["hidden_name"],
-				'item_price'		=>	$_POST["hidden_price"],
-				'item_quantity'		=>	$_POST["quantity"]
-			);
-			$_SESSION["shopping_cart"][$count] = $item_array;
-		}
-		else
-		{
-			echo '<script>alert("Item Already Added")</script>';
-		}
-	}
-	else
-	{
-		$item_array = array(
-			'item_id'			=>	$_GET["id"],
-			'item_name'			=>	$_POST["hidden_name"],
-			'item_price'		=>	$_POST["hidden_price"],
-			'item_quantity'		=>	$_POST["quantity"]
-		);
-		$_SESSION["shopping_cart"][0] = $item_array;
-	}
-}
-
-if(isset($_GET["action"]))
-{
-	if($_GET["action"] == "delete")
-	{
-		foreach($_SESSION["shopping_cart"] as $keys => $values)
-		{
-			if($values["item_id"] == $_GET["id"])
-			{
-				unset($_SESSION["shopping_cart"][$keys]);
-				echo '<script>alert("Item Removed")</script>';
-				echo '<script>window.location="index.php"</script>';
-			}
-		}
-	}
-}
-
-?>
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>UrbanDine</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<br />
-		<div class="container">
-			<br />
-			<br />
-			<br />
-			<br /><br />
-			<?php
-				$query = "SELECT * FROM dishes ORDER BY id ASC";
-				$result = mysqli_query($connect, $query);
-				if(mysqli_num_rows($result) > 0)
-				{
-					while($row = mysqli_fetch_array($result))
-					{
-				?>
-			<div class="col-md-4">
-				<form method="post" action="index.php?action=add&id=<?php echo $row["id"]; ?>">
-					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-						<img src="images/dishes/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
+<html lang="en">
+  <head>
+    <title>Urban-Dine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
 
-						<h4 class="text-info"><?php echo $row["name"]; ?></h4>
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
 
-						<h4 class="text-danger">Rs. <?php echo $row["price"]; ?></h4>
+    <link rel="stylesheet" href="css/aos.css">
 
-						<input type="text" name="quantity" value="1" class="form-control" />
+    <link rel="stylesheet" href="css/ionicons.min.css">
 
-						<input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-						<input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.php">Urban-Dine</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
 
-						<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="home.php" class="nav-link">About</a></li>
+	        	<li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <section class="home-slider owl-carousel js-fullheight">
+      <div class="slider-item js-fullheight" style="background-image: url(images/bg_1.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
 
-					</div>
-				</form>
-			</div>
-			<?php
-					}
-				}
-			?>
-			<div style="clear:both"></div>
-			<br />
-			<h3>Order Details</h3>
-			<div class="table-responsive">
-				<table class="table table-bordered">
-					<tr>
-						<th width="40%">Item Name</th>
-						<th width="10%">Quantity</th>
-						<th width="20%">Price</th>
-						<th width="15%">Total</th>
-						<th width="5%">Action</th>
-					</tr>
-					<?php
-					if(!empty($_SESSION["shopping_cart"]))
-					{
-						$total = 0;
-						foreach($_SESSION["shopping_cart"] as $keys => $values)
-						{
-					?>
-					<tr>
-						<td><?php echo $values["item_name"]; ?></td>
-						<td><?php echo $values["item_quantity"]; ?></td>
-						<td>Rs.	 <?php echo $values["item_price"]; ?></td>
-						<td>Rs. <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
-						<td><a href="index.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
-					</tr>
-					<?php
-							$total = $total + ($values["item_quantity"] * $values["item_price"]);
-						}
-					?>
-					<tr>
-						<td colspan="3" align="right">Total</td>
-						<td align="right">Rs. <?php echo number_format($total, 2); ?></td>
-						<td></td>
-					</tr>
-					<?php
-					}
-					?>
-						
-				</table>
-			</div>
-		</div>
-	</div>
-	<br />
-	<button class="btn btn-success"> <a href="bill.php">Confirm Order</a> </button>
-	</body>
+            <div class="col-md-12 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Urban-Dine</span>
+              <h1 class="mb-4">Best Restaurant</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item js-fullheight" style="background-image: url(images/bg_2.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-12 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Urban-Dine</span>
+              <h1 class="mb-4">Nutritious &amp; Tasty</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item js-fullheight" style="background-image: url(images/bg_3.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-12 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Urban-Dine</span>
+              <h1 class="mb-4">Delicious Specialties</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    	<div class="container-fluid">
+    		<div class="row">
+    			<div class="col-md-12">
+    				<div class="featured">
+    					<div class="row">
+    						<div class="col-md-3">
+    							<div class="featured-menus ftco-animate">
+			              <div class="menu-img img" style="background-image: url(images/breakfast-1.jpg);"></div>
+			              <div class="text text-center">
+		                  <h3>Grilled Chicken with potatoes</h3>
+				              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+			              </div>
+			            </div>
+    						</div>
+    						<div class="col-md-3">
+    							<div class="featured-menus ftco-animate">
+			              <div class="menu-img img" style="background-image: url(images/breakfast-2.jpg);"></div>
+			              <div class="text text-center">
+		                  <h3>Fired Chicken Wings with Mayo</h3>
+				              <p><span>Meat</span>, <span>Potatoes</span>, <span>Mayonese</span></p>
+			              </div>
+			            </div>
+    						</div>
+    						<div class="col-md-3">
+    							<div class="featured-menus ftco-animate">
+			              <div class="menu-img img" style="background-image: url(images/breakfast-3.jpg);"></div>
+			              <div class="text text-center">
+		                  <h3>Pineapple Custard</h3>
+				              <p><span>Pineapple</span>, <span>Banana</span>, <span>Strawberry Sauce</span></p>
+			              </div>
+			            </div>
+    						</div>
+    						<div class="col-md-3">
+    							<div class="featured-menus ftco-animate">
+			              <div class="menu-img img" style="background-image: url(images/breakfast-4.jpg);"></div>
+			              <div class="text text-center">
+		                  <h3>Egg Tomato (Urban-Dine Speciality)</h3>
+				              <p><span>Egg</span>, <span>Spinach</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+			              </div>
+			            </div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+	
+  
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
 </html>
-
-<?php
-//If you have use Older PHP Version, Please Uncomment this function for removing error 
-
-/*function array_column($array, $column_name)
-{
-	$output = array();
-	foreach($array as $keys => $values)
-	{
-		$output[] = $values[$column_name];
-	}
-	return $output;
-}*/
-?>

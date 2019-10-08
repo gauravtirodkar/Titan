@@ -1,7 +1,7 @@
 <?php
 session_start();
 $connect = mysqli_connect("localhost", "root", "", "urbandine");
-
+$user = $_SESSION['user'];
 if (isset($_POST["add_to_cart"])) {
     if (isset($_SESSION["shopping_cart"])) {
         $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
@@ -34,7 +34,7 @@ if (isset($_GET["action"])) {
             if ($values["item_id"] == $_GET["id"]) {
                 unset($_SESSION["shopping_cart"][$keys]);
                 echo '<script>alert("Item Removed")</script>';
-                echo '<script>window.location="index.php"</script>';
+                echo '<script>window.location="order.php"</script>';
             }
         }
     }
@@ -52,7 +52,31 @@ if (isset($_GET["action"])) {
 </head>
 
 <body>
-    <br />
+<nav class="navbar  navbar-collapse navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.php">Urban-Dine</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Home </a></li>
+					<li><a href="#">About</a></li>
+					<li class="active"><a href="#">Logged In As <?php echo $user;?><span class="sr-only">(current)</span></a></li>
+					
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+    
     <div class="container">
         <br />
         <br />
@@ -80,7 +104,7 @@ if (isset($_GET["action"])) {
                             <td><?php echo $values["item_quantity"]; ?></td>
                             <td>Rs. <?php echo $values["item_price"]; ?></td>
                             <td>Rs. <?php echo number_format($values["item_quantity"] * $values["item_price"], 2); ?></td>
-                            <td><a href="index.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
+                            <td><a href="order.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
                         </tr>
                     <?php
                             $total = $total + ($values["item_quantity"] * $values["item_price"]);
@@ -101,8 +125,8 @@ if (isset($_GET["action"])) {
 
     <form action="place_order.php" method="get">
         <div style="text-align:center;">
-        <input type="username" name="customer" id="customer">
-            <button type="button" class="btn btn-danger"> <a href="index.php"> Go Back </a></button>
+        <input type="hidden" name="customer"  value ="<?php echo $user; ?>"  id="customer">
+            <button type="button" class="btn btn-danger"> <a href="order.php"> Go Back </a></button>
             <button type="submit" class="btn btn-success" >Pay With Credit Card</button>
             <button type="submit" class="btn btn-success">Pay With Credit Card</button>
             <button type="submit" class="btn btn-success">Pay With Urban-Dine Pay Balance</button>
@@ -118,6 +142,10 @@ if (isset($_GET["action"])) {
         color: white;
         text-decoration: none;
     }
+	body{
+		background-color : #F9EEEE;
+	}
+
 </style>
 
 </html>
