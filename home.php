@@ -324,8 +324,8 @@ document.getElementById('contact-form').submit();
               <ul class="alt">
                 <li><a href="#">Menu</a></li>
                 <li><a href="#">Today's special</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
               </ul>
             </section>
             <section>
