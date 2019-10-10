@@ -39,7 +39,8 @@
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
 	        	<li class="nav-item"><a href="home.php" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
+	        	<li class="nav-item"><a href="login.php" class="nav-link">Cutomer</a></li>
+	        	<li class="nav-item"><a href="login.php" class="nav-link">Admin</a></li>
 	        </ul>
 	      </div>
 	    </div>

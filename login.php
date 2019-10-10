@@ -1,6 +1,9 @@
 <?php
 //Includes the file for checking username and password
 include("loginserv.php");
+
+//Includes file for adding new user
+include("register.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,12 +14,12 @@ include("loginserv.php");
     <h2>Enter Your Credentials And Start Eating</h2>
     <div class="container" id="container">
       <div class="form-container sign-up-container">
-        <form action="#">
+        <form action="#" method="POST">
           <h1>Create Account</h1>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button>Sign Up</button>
+          <input type="text" id="newuser" name="newuser" placeholder="Name" />
+          <input type="email" id="newemail" name="newemail" placeholder="Email" />
+          <input type="password" id="newpass" name="newpass" placeholder="Password" />
+          <button type="submit" name="register">Sign Up</button>
           <button style="margin: 15px;"> <a href="./index.php" style="color: wheat;">Go Back!</a></button>
         </form>
       </div>
@@ -27,7 +30,6 @@ include("loginserv.php");
           <input type="password" id="pass" name="pass" placeholder="Password" />
           <a href="#">Forgot your password?</a>
           <button type="submit" name="submit">Sign In</button>
-          <input type="submit" value="Sign-In" name="submit">
         </form>
       </div>
       <div class="overlay-container">

@@ -66,7 +66,7 @@
                   <h1>Urban-Dine</h1>
                   <p>Shaping the future of food!!!</p>
                 </div>
-                <video autoplay loop muted playsinline src="./images/videos/banner.mp4"></video>
+                <video autoplay loop muted playsinline src="./images/videos/resto.mp4"></video>
               </section>
 
               <!-- Highlights -->
