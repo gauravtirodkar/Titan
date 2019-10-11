@@ -14,7 +14,7 @@ if (isset($_POST['register'])) {
         }
 
         $sql = "INSERT INTO userpass (user, pass, email)
-VALUES ('$newuser', '$newpass','$newemail')";
+VALUES ('$newuser', '$newpass',MD5('$newemail'))";
 
         if ($conn->query($sql) === TRUE) {
             header("Location: login.php"); 

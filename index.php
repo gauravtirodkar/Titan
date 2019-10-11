@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  <body style="overflow-y:hidden;">
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.php">Urban-Dine</a>
@@ -40,7 +40,6 @@
 	        	<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
 	        	<li class="nav-item"><a href="home.php" class="nav-link">About</a></li>
 	        	<li class="nav-item"><a href="login.php" class="nav-link">Cutomer</a></li>
-	        	<li class="nav-item"><a href="login.php" class="nav-link">Admin</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -128,7 +127,7 @@
     							<div class="featured-menus ftco-animate">
 			              <div class="menu-img img" style="background-image: url(images/breakfast-4.jpg);"></div>
 			              <div class="text text-center">
-		                  <h3>Egg Tomato (Urban-Dine Speciality)</h3>
+		                  <h3>Penny Black (Urban-Dine Speciality)</h3>
 				              <p><span>Egg</span>, <span>Spinach</span>, <span>Rice</span>, <span>Tomatoe</span></p>
 			              </div>
 			            </div>

@@ -94,7 +94,7 @@
                           <a href="#" class="icon fa-files-o"><span class="label">Icon</span></a>
                           <h3>AFFORDABILITY</h3>
                         </header>
-                        <p>The benefits of providing an interesting choice are embodied by the success of GST Cafe. We are leaving no stone unturned when it comes to making food more affordable without compromising on the profitability of a given restaurant.</p>
+                        <p>The benefits of providing an interesting choice are embodied by the success of Urban-Dine. We are leaving no stone unturned when it comes to making food more affordable without compromising on the profitability of a given restaurant.</p>
                       </div>
                     </section>
                     <section>
@@ -115,7 +115,7 @@
               <section id="cta" class="wrapper">
                 <div class="inner">
                   <h2>Culture at Urban-Dine</h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>We push ourselves beyond our abilities when faced with tough times. When we forsee uncertanity, we address it with flexibility.</p>
                 </div>
               </section>
 
@@ -124,45 +124,46 @@
                 <div class="inner">
                   <header class="special">
                     <h2>OUR TEAM</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                    <p>Here at Urban-Dine we believe that food is of utmost priority for all, and we aim to strive to surprise our customers with the new delicacies. </p>
                   </header>
                   <div class="testimonials">
                     <section>
                       <div class="content">
                         <blockquote>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                          <p>For me, it’s the feeling really. What stands above all is the feeling of belongingness. I feel like I belong here and that’s what makes me feel at home, every single day.</p>
                         </blockquote>
                         <div class="author">
                           <div class="image">
-                            <img src="images/pic01.jpg" alt="" />
+                            <img src="images/saurav.jpg" alt="" />
                           </div>
-                          <p class="credit">- <strong>Saurav </strong> <span>CO-FOUNDER<br> - GST CAFE</span></p>
+                          <p class="credit">- <strong>Saurav </strong> <span>CO-FOUNDER<br> - Urban-Dine</span></p>
                         </div>
                       </div>
                     </section>
                     <section>
                       <div class="content">
                         <blockquote>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                          <p>Urban-Dine is a group of insanely talented people building something very special. It’s quick paced, dynamic, challenging and rewarding.</p>
                         </blockquote>
                         <div class="author">
                           <div class="image">
-                            <img src="images/pic03.jpg" alt="" />
+                            <img src="images/gaurav.jpg" alt="" />
                           </div>
-                          <p class="credit">- <strong>Gaurav</strong> <span>CO-FOUNDER <br>- GST CAFE</span></p>
+                          <p class="credit">- <strong>Gaurav</strong> <span>CO-FOUNDER <br>- Urban-Dine</span></p>
                         </div>
                       </div>
                     </section>
                     <section>
                       <div class="content">
                         <blockquote>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                          <p>
+I've never met anyone that doesn't enjoy the dynamic office environment at Urban-Dine. There's a perfect balance of hard-work, hustle, fun and learning.</p>
                         </blockquote>
                         <div class="author">
                           <div class="image">
-                            <img src="images/pic02.jpg" alt="" />
+                            <img src="images/parth.jpg" alt="" />
                           </div>
-                          <p class="credit">- <strong>Tanishqa</strong> <span>CO-FOUNDER <br>- GST CAFE</span></p>
+                          <p class="credit">- <strong>Tanishqa</strong> <span>CO-FOUNDER <br>- Urban-Dine</span></p>
                         </div>
                       </div>
                     </section>
@@ -260,12 +261,12 @@
             <p>Collector Colony, Chembur, Mumbai </p>
           </li>
 
-          <li><i class="fas fa-phone mt-4 fa-2x"></i>
+          <li><i class="fa fa-phone mt-4 fa-2x"></i>
             <p>+ 91 523 456 7189</p>
           </li>
 
-          <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-            <p>contact@gstcafe.com</p>
+          <li><i class="fa fa-envelope mt-4 fa-2x"></i>
+            <p>contact@urbandine.com</p>
           </li>
         </ul>
       </div>
@@ -336,15 +337,15 @@
       <div class="content">
         <section>
           <h3>our mission</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+          <p>For us, sustainability is not a lofty idea but a fundamental, and necessary, endeavor. Our concept is about the food and drink of course, but it’s also about our team, our facilities, our practices, and the hundreds of decisions we make each day that affect the world around us. We believe it’s about finding a balance, which allows us to sustain our quest of making quality, accessible food, while also giving back to our community and the environment.</p>
         </section>
         <section>
 
           <ul class="alt">
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Today's special</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.php">Menu</a></li>
+            <li><a href="index.php">Today's special</a></li>
+            <li><a href="home.php">About</a></li>
+            
           </ul>
         </section>
         <section>

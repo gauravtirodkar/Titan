@@ -128,10 +128,11 @@ if (isset($_GET["action"])) {
         <input type="hidden" name="customer"  value ="<?php echo $user; ?>"  id="customer">
             <button type="button" class="btn btn-danger"> <a href="order.php"> Go Back </a></button>
             <button type="submit" class="btn btn-success" >Pay With Credit Card</button>
-            <button type="submit" class="btn btn-success">Pay With Credit Card</button>
+            <button type="submit" class="btn btn-success">Pay With Dedit Card</button>
             <button type="submit" class="btn btn-success">Pay With Urban-Dine Pay Balance</button>
         </div>
     </form>
+    
     </div>
     <br />
 

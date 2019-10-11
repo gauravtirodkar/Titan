@@ -67,16 +67,16 @@ if (isset($_GET["action"])) {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Urban-Dine</a>
+				<a class="navbar-brand" href="index.php">Urban-Dine</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Home </a></li>
-					<li><a href="#">About</a></li>
-					<li class="active"><a href="#">Logged In As <?php echo $user;?><span class="sr-only">(current)</span></a></li>
-					
+					<li><a href="index.php">Home </a></li>
+					<li><a href="home.php">About</a></li>
+					<li class="active"><a href="#">Logged In As <?php echo $user; ?><span class="sr-only">(current)</span></a></li>
+
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
@@ -171,8 +171,8 @@ if (isset($_GET["action"])) {
 		text-align: center;
 		padding: 15px;
 	}
-	body{
-		background-color : #F9EEEE;
+
+	body {
+		background-color: #F9EEEE;
 	}
-	
 </style>
